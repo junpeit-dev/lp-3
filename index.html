@@ -7,333 +7,217 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Noto Sans JP', sans-serif; scroll-behavior: smooth; }
+        body { font-family: 'Noto Sans JP', sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
         .bg-beige { background-color: #fdfbf7; }
-        .section-title { position: relative; display: inline-block; padding-bottom: 1rem; }
-        .section-title::after { content: ''; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); width: 60px; height: 3px; background: #fb7185; border-radius: 2px; }
-        .check-list li::before { content: '✔'; color: #fb7185; font-weight: bold; margin-right: 0.5rem; }
+        .section-title { position: relative; display: inline-block; padding-bottom: 1.5rem; }
+        .section-title::after { content: ''; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); width: 40px; height: 2px; background: #fb7185; opacity: 0.6; }
+        .check-list li { position: relative; padding-left: 2rem; margin-bottom: 1rem; }
+        .check-list li::before { content: '✔'; position: absolute; left: 0; color: #fb7185; font-weight: bold; }
+        .text-glow { text-shadow: 0 0 30px rgba(251, 113, 133, 0.15); }
+        .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .fade-in { animation: fadeIn 1.2s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body class="text-gray-800 bg-white">
 
     <!-- Navigation -->
-    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="text-xl font-bold tracking-tighter text-rose-500 italic">BEAUTY STEP <span class="text-xs font-normal text-gray-400 not-italic ml-1">SLIM INJECTION</span></div>
-            <nav class="hidden lg:flex space-x-6 text-sm font-medium">
-                <a href="#about" class="hover:text-rose-500 transition-colors">スルリム注射とは</a>
-                <a href="#comparison" class="hover:text-rose-500 transition-colors">他との違い</a>
-                <a href="#safety" class="hover:text-rose-500 transition-colors">安心の理由</a>
-                <a href="#consultation" class="hover:text-rose-500 transition-colors">ご相談について</a>
-                <a href="#faq" class="hover:text-rose-500 transition-colors">よくある質問</a>
+    <header class="fixed w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-50">
+        <div class="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
+            <div class="flex flex-col">
+                <span class="text-lg md:text-xl font-bold tracking-[0.2em] text-rose-500 italic leading-none">BEAUTY STEP</span>
+                <span class="text-[7px] md:text-[8px] tracking-[0.3em] text-gray-400 font-medium mt-1">SPECIALIZED IN BEGINNERS</span>
+            </div>
+            <nav class="hidden lg:flex space-x-8 text-[11px] font-bold tracking-widest uppercase text-gray-500">
+                <a href="#concept" class="hover:text-rose-500 transition-colors">Concept</a>
+                <a href="#about" class="hover:text-rose-500 transition-colors">Suru-Slim</a>
+                <a href="#safety" class="hover:text-rose-500 transition-colors">Safety</a>
+                <a href="#consultation" class="hover:text-rose-500 transition-colors">Consultation</a>
+                <a href="#faq" class="hover:text-rose-500 transition-colors">FAQ</a>
             </nav>
-            <a href="#cta" class="bg-rose-500 text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-rose-600 transition-all shadow-lg shadow-rose-200">
-                無料カウンセリング予約
+            <a href="#cta" class="bg-gray-900 text-white px-6 md:px-8 py-2.5 rounded-full text-[9px] md:text-[10px] font-bold tracking-widest hover:bg-rose-500 transition-all shadow-xl shadow-gray-200">
+                RESERVE
             </a>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="pt-32 pb-32 bg-beige px-4 relative text-center">
-        <div class="container mx-auto">
-            <div class="inline-block px-4 py-1 bg-rose-100 text-rose-600 rounded-full text-xs font-bold mb-6">
-                美容初心者の方が、安心して一歩踏み出せる場所
-            </div>
-            <h1 class="text-3xl md:text-6xl font-bold leading-[1.4] mb-8 text-gray-900 tracking-[0.15em] md:tracking-[0.2em]">
+    <!-- Hero Section (Meta Mobile Optimized) -->
+    <section class="pt-32 md:pt-48 pb-24 md:pb-40 bg-beige px-4 relative text-center overflow-hidden">
+        <div class="container mx-auto relative z-10 fade-in">
+            <span class="inline-block px-5 py-1.5 bg-white text-rose-500 rounded-full text-[9px] md:text-[10px] font-bold mb-8 md:mb-12 tracking-[0.2em] md:tracking-[0.3em] shadow-sm">
+                WELCOME TO YOUR FIRST STEP
+            </span>
+            <!-- モバイルでのフォントサイズとトラッキングを画面幅に合わせて最適化 -->
+            <h1 class="text-2xl md:text-7xl font-bold leading-[1.6] mb-10 text-gray-900 tracking-[0.1em] md:tracking-[0.25em] text-glow px-2">
                 美容初心者の一歩を、<br>
                 全力で後押ししたい。
             </h1>
-            <span class="text-rose-500 text-2xl md:text-4xl block mb-10 italic tracking-widest uppercase opacity-80">Suru-Slim Injection</span>
-            <p class="text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
-                「興味はあるけど、勇気が出ない」そんなあなたへ。<br>
-                BEAUTY STEPは、ハードルを極限まで下げた「始めやすい美容」を提案します。
+            <p class="text-gray-500 mb-14 max-w-3xl mx-auto leading-loose text-xs md:text-lg font-light tracking-wider px-4">
+                鏡を見てため息をつく時間は、もう十分に過ごしてきたはず。<br>
+                私たちは、あなたが自分を好きになる「最初の15分」を<br class="hidden md:block">
+                どこよりも優しく、丁寧にお預かりします。
             </p>
             
-            <!-- Main Image & Enlarged Horizontal Box -->
-            <div class="relative max-w-5xl mx-auto">
-                <img src="https://images.unsplash.com/photo-1552693673-1bf958298935?auto=format&fit=crop&q=80&w=1200" class="rounded-[3rem] shadow-2xl w-full h-[350px] md:h-[600px] object-cover" alt="美しいフェイスライン">
+            <!-- Main Visual Area -->
+            <div class="relative max-w-5xl mx-auto mb-24 md:mb-32">
+                <div class="overflow-hidden rounded-[3rem] md:rounded-[5rem] shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1552693673-1bf958298935?auto=format&fit=crop&q=80&w=1400" class="w-full h-[350px] md:h-[700px] object-cover" alt="輝く素肌と自信">
+                </div>
                 
-                <div class="absolute -bottom-16 left-1/2 -translate-x-1/2 bg-white px-8 md:px-20 py-10 rounded-[3rem] shadow-2xl border border-rose-50 hidden md:flex items-center justify-between w-[95%] max-w-5xl">
+                <!-- Horizontal statistics box (Mobile friendly) -->
+                <div class="absolute -bottom-16 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-sm px-6 md:px-24 py-8 md:py-12 rounded-[2.5rem] md:rounded-[4rem] shadow-2xl border border-rose-50 flex items-center justify-between w-[92%] max-w-5xl">
                     <div class="text-center flex-1">
-                        <span class="block text-4xl lg:text-5xl font-black text-rose-500 mb-2">15分〜</span>
-                        <span class="text-sm font-bold text-gray-400 tracking-widest uppercase">施術時間</span>
+                        <span class="block text-2xl md:text-6xl font-black text-rose-500 mb-1 md:mb-3 tracking-tighter">15<span class="text-[10px] md:text-2xl ml-0.5">min</span></span>
+                        <span class="text-[8px] md:text-[10px] font-bold text-gray-400 tracking-[0.2em] md:tracking-[0.4em] uppercase">Time</span>
                     </div>
-                    <div class="w-px h-16 bg-gray-100"></div>
+                    <div class="w-px h-10 md:h-20 bg-gray-100 mx-2"></div>
                     <div class="text-center flex-1">
-                        <span class="block text-4xl lg:text-5xl font-black text-rose-500 mb-2">0日</span>
-                        <span class="text-sm font-bold text-gray-400 tracking-widest uppercase">ダウンタイム</span>
+                        <span class="block text-2xl md:text-6xl font-black text-rose-500 mb-1 md:mb-3 tracking-tighter">0<span class="text-[10px] md:text-2xl ml-0.5">day</span></span>
+                        <span class="text-[8px] md:text-[10px] font-bold text-gray-400 tracking-[0.2em] md:tracking-[0.4em] uppercase">Down</span>
                     </div>
-                    <div class="w-px h-16 bg-gray-100"></div>
+                    <div class="w-px h-10 md:h-20 bg-gray-100 mx-2"></div>
                     <div class="text-center flex-1">
-                        <span class="block text-4xl lg:text-5xl font-black text-rose-500 mb-2">10年</span>
-                        <span class="text-sm font-bold text-gray-400 tracking-widest uppercase">無事故の信頼</span>
+                        <span class="block text-2xl md:text-6xl font-black text-rose-500 mb-1 md:mb-3 tracking-tighter">10<span class="text-[10px] md:text-2xl ml-0.5">yrs</span></span>
+                        <span class="text-[8px] md:text-[10px] font-bold text-gray-400 tracking-[0.2em] md:tracking-[0.4em] uppercase">Trust</span>
                     </div>
-                </div>
-            </div>
-            
-            <!-- Mobile stats view -->
-            <div class="md:hidden grid grid-cols-3 gap-2 mt-8 bg-white p-6 rounded-3xl shadow-lg border border-rose-50">
-                <div class="text-center">
-                    <span class="block text-xl font-bold text-rose-500">15分〜</span>
-                    <span class="text-[10px] text-gray-400">施術時間</span>
-                </div>
-                <div class="text-center border-x border-gray-100">
-                    <span class="block text-xl font-bold text-rose-500">0日</span>
-                    <span class="text-[10px] text-gray-400">ダウンタイム</span>
-                </div>
-                <div class="text-center">
-                    <span class="block text-xl font-bold text-rose-500">10年</span>
-                    <span class="text-[10px] text-gray-400">無事故</span>
                 </div>
             </div>
         </div>
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-rose-100/30 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3"></div>
     </section>
 
-    <!-- Section 1: Concerns -->
-    <section id="concerns" class="py-24 bg-white mt-10 md:mt-20 text-center">
+    <!-- Section 1: Problem Solving -->
+    <section id="concept" class="py-24 md:py-32 bg-white text-center">
         <div class="container mx-auto px-4 max-w-4xl">
-            <div class="bg-rose-50 p-12 rounded-[3rem] border border-rose-100 relative overflow-hidden">
-                <h2 class="text-2xl md:text-3xl font-bold mb-10 text-gray-800">こんな「検索」をしていませんか？</h2>
-                <div class="grid md:grid-cols-2 gap-4">
-                    <div class="bg-white/80 p-4 rounded-xl shadow-sm text-sm font-medium text-gray-600">「整形 失敗 怖い」</div>
-                    <div class="bg-white/80 p-4 rounded-xl shadow-sm text-sm font-medium text-gray-600">「美容クリニック 行きにくい」</div>
-                    <div class="bg-white/80 p-4 rounded-xl shadow-sm text-sm font-medium text-gray-600">「顔痩せ 即効性 安全」</div>
-                    <div class="bg-white/80 p-4 rounded-xl shadow-sm text-sm font-medium text-gray-600">「初心者向け 美容 おすすめ」</div>
-                </div>
-                <p class="mt-12 text-gray-600 leading-relaxed">
-                    スマホで検索しては、不安になって諦める。<br>
-                    そんなループを終わらせるために、**BEAUTY STEPのスルリム注射**があります。
-                </p>
-                <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-rose-200/20 rounded-full blur-3xl"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 2: What is Suru-Slim? -->
-    <section id="about" class="py-24 bg-beige text-center">
-        <div class="container mx-auto px-4 max-w-5xl">
-            <h2 class="text-3xl font-bold mb-4 section-title">スルリム注射とは？</h2>
-            <p class="text-gray-500 mb-16 leading-relaxed">
-                植物由来の成分を中心に、当院独自の比率でブレンドした脂肪溶解注射です。<br>
-                気になる部分に注射するだけで、脂肪細胞を分解・排出し、リバウンドしにくい体質へ導きます。
-            </p>
-            <div class="grid md:grid-cols-3 gap-12 text-left">
-                <div class="space-y-4">
-                    <div class="w-16 h-16 bg-rose-500 text-white rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-rose-200">🔬</div>
-                    <h3 class="text-xl font-bold">科学的なアプローチ</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">脂肪の「サイズ」を小さくするのではなく、「細胞数」自体を減らすため、効果が長続きします。</p>
-                </div>
-                <div class="space-y-4">
-                    <div class="w-16 h-16 bg-rose-500 text-white rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-rose-200">🌿</div>
-                    <h3 class="text-xl font-bold">天然由来成分</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">身体への負担を最小限に抑えた天然成分を配合。腫れや赤みを極限まで抑えています。</p>
-                </div>
-                <div class="space-y-4">
-                    <div class="w-16 h-16 bg-rose-500 text-white rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-rose-200">🔄</div>
-                    <h3 class="text-xl font-bold">自然な排出</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">分解された脂肪は、数日かけて自然に汗や尿として体外へ排出されます。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 3: Comparison Table -->
-    <section id="comparison" class="py-24 bg-white text-center">
-        <div class="container mx-auto px-4 max-w-4xl">
-            <h2 class="text-3xl font-bold mb-16 section-title">なぜ「スルリム注射」なの？</h2>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse bg-white shadow-xl rounded-3xl overflow-hidden">
-                    <thead>
-                        <tr class="bg-gray-900 text-white">
-                            <th class="p-6">項目</th>
-                            <th class="p-6 bg-rose-500 text-center">スルリム注射</th>
-                            <th class="p-6">従来の脂肪吸引</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-sm">
-                        <tr class="border-b">
-                            <td class="p-6 font-bold">メスの使用</td>
-                            <td class="p-6 text-center text-rose-500 font-bold">なし</td>
-                            <td class="p-6 text-center">あり（切開）</td>
-                        </tr>
-                        <tr class="border-b bg-rose-50/30">
-                            <td class="p-6 font-bold">ダウンタイム</td>
-                            <td class="p-6 text-center text-rose-500 font-bold">ほぼなし</td>
-                            <td class="p-6 text-center">2週間〜1ヶ月</td>
-                        </tr>
-                        <tr class="border-b">
-                            <td class="p-6 font-bold">痛み</td>
-                            <td class="p-6 text-center text-rose-500 font-bold">チクッとする程度</td>
-                            <td class="p-6 text-center">強い（術後も続く）</td>
-                        </tr>
-                        <tr>
-                            <td class="p-6 font-bold">施術時間</td>
-                            <td class="p-6 text-center text-rose-500 font-bold">15分〜</td>
-                            <td class="p-6 text-center">2時間〜</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 4: Target Areas -->
-    <section class="py-24 bg-beige text-center">
-        <div class="container mx-auto px-4 max-w-5xl">
-            <h2 class="text-3xl font-bold mb-16 section-title">こんな部分に効果的</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white p-6 rounded-2xl shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=300" class="w-full h-32 object-cover rounded-xl mb-4" alt="フェイスライン">
-                    <h3 class="font-bold">二重あご</h3>
-                    <p class="text-xs text-gray-500 mt-2 italic">シュッとした横顔へ</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1512290902225-d7225904b1f9?auto=format&fit=crop&q=80&w=300" class="w-full h-32 object-cover rounded-xl mb-4" alt="頬">
-                    <h3 class="font-bold">頬の厚み</h3>
-                    <p class="text-xs text-gray-500 mt-2 italic">笑った時の膨らみに</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1505944270255-bd2b896e7517?auto=format&fit=crop&q=80&w=300" class="w-full h-32 object-cover rounded-xl mb-4" alt="二の腕のケア">
-                    <h3 class="font-bold">二の腕</h3>
-                    <p class="text-xs text-gray-500 mt-2 italic">ノースリーブも怖くない</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1551290464-629675975d52?auto=format&fit=crop&q=80&w=300" class="w-full h-32 object-cover rounded-xl mb-4" alt="お腹">
-                    <h3 class="font-bold">お腹・腰回り</h3>
-                    <p class="text-xs text-gray-500 mt-2 italic">落ちにくい「あと少し」に</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 5: Why Us (Safety) -->
-    <section id="safety" class="py-24 bg-white relative">
-        <div class="container mx-auto px-4 max-w-5xl">
-            <div class="flex flex-col lg:flex-row items-center gap-16">
-                <div class="lg:w-1/2">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800" class="rounded-[3rem] shadow-2xl relative z-10" alt="医師による説明">
-                        <div class="absolute -top-6 -left-6 w-32 h-32 bg-rose-500 text-white rounded-full flex items-center justify-center text-center p-4 z-20 shadow-lg leading-tight font-bold">
-                            10年間<br>無事故の<br>実績
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:w-1/2">
-                    <h2 class="text-3xl font-bold mb-6 italic text-gray-800">Safety First Policy</h2>
-                    <p class="text-gray-600 mb-8 leading-relaxed">
-                        私たちが最も大切にしているのは、技術よりも「安心」です。10年間重大な事故ゼロ。それは、初心者の方でも安心して一歩を踏み出せるよう、以下のことを徹底しているからです。
+            <h2 class="text-xl md:text-3xl font-bold mb-12 md:成就16 tracking-widest text-gray-800 leading-relaxed px-4">
+                「検索」に奪われる時間は、<br class="md:hidden">もう終わり。
+            </h2>
+            <div class="relative p-10 md:p-20 bg-rose-50 rounded-[4rem] md:rounded-[5rem] overflow-hidden mx-2">
+                <div class="relative z-10 space-y-8 text-gray-600 leading-loose text-xs md:text-base">
+                    <p>
+                        SNSの広告を見て、期待と不安で揺れる心。<br class="hidden md:block">
+                        「失敗」や「後悔」という言葉に怯えて、スマホを閉じる夜。
                     </p>
-                    <ul class="space-y-4 check-list text-left">
-                        <li class="text-gray-700 font-medium italic">無理な大量注入は行いません</li>
-                        <li class="text-gray-700 font-medium italic">極細針を使用し、内出血のリスクを最小化</li>
-                        <li class="text-gray-700 font-medium italic">カウンセリングでお茶を飲み、リラックスしてから判断</li>
-                        <li class="text-gray-700 font-medium italic">24時間のLINEサポート体制完備</li>
+                    <p class="font-bold text-rose-500 text-base md:text-2xl tracking-[0.05em] md:tracking-[0.1em] border-b border-rose-200 inline-block pb-1">
+                        その悩み、たった1回の「お話し」で<br class="md:hidden text-xs">解決できるかもしれません。
+                    </p>
+                    <p>
+                        スルリム注射は、大きな変化を狙うものではありません。<br class="hidden md:block">
+                        あなたが鏡を見たとき、ほんの少しだけ口角が上がる。<br class="hidden md:block">
+                        そんな「日常の小さな喜び」を取り戻す体験です。
+                    </p>
+                </div>
+                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-white/40 rounded-full blur-3xl"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Product Core -->
+    <section id="about" class="py-24 md:py-32 bg-beige text-center">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 section-title tracking-widest">選ばれる３つの理由</h2>
+            <div class="grid md:grid-cols-3 gap-8 mt-16 md:mt-20">
+                <div class="bg-white p-10 md:p-12 rounded-[3rem] hover-lift">
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-rose-50 rounded-full flex items-center justify-center text-2xl md:text-3xl mb-6 md:mb-8 mx-auto">✨</div>
+                    <h3 class="font-bold mb-4 tracking-wider">戻れる、安心感</h3>
+                    <p class="text-gray-500 text-xs md:text-sm leading-relaxed">
+                        「戻れる美容」だから、初めての方でも安心して選ばれています。
+                    </p>
+                </div>
+                <div class="bg-white p-10 md:p-12 rounded-[3rem] hover-lift border-2 border-rose-100">
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-rose-50 rounded-full flex items-center justify-center text-2xl md:text-3xl mb-6 md:mb-8 mx-auto">🍃</div>
+                    <h3 class="font-bold mb-4 tracking-wider">天然由来成分</h3>
+                    <p class="text-gray-500 text-xs md:text-sm leading-relaxed">
+                        痛みや腫れを極限まで抑え、翌日からの日常を妨げません。
+                    </p>
+                </div>
+                <div class="bg-white p-10 md:p-12 rounded-[3rem] hover-lift">
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-rose-50 rounded-full flex items-center justify-center text-2xl md:text-3xl mb-6 md:mb-8 mx-auto">🤝</div>
+                    <h3 class="font-bold mb-4 tracking-wider">専任医の伴走</h3>
+                    <p class="text-gray-500 text-xs md:text-sm leading-relaxed">
+                        骨格を熟知した専門医が、あなたと一緒に「ちょうどいい」を探します。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Consultation -->
+    <section id="consultation" class="py-24 md:py-32 bg-white text-center">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 section-title tracking-widest">
+                相談だけでも、大歓迎
+            </h2>
+            <div class="mt-16 bg-beige rounded-[3.5rem] md:rounded-[5rem] overflow-hidden border border-rose-50 flex flex-col md:flex-row items-center mx-2 shadow-sm">
+                <div class="flex-1 p-10 md:p-20 text-left space-y-6 md:space-y-8">
+                    <h3 class="text-xl md:text-3xl font-bold text-gray-900 tracking-wider">
+                        「話を聞くだけ」が、<br>当院のスタンダードです。
+                    </h3>
+                    <p class="text-gray-500 leading-loose text-xs md:text-base font-light">
+                        「何からはじめればいい？」その答えは、ネットの中にはありません。ハーブティーを飲みながら、カフェにいるような空間でじっくりお話しを伺います。
+                    </p>
+                    <ul class="space-y-4 text-xs md:text-sm font-medium text-gray-700">
+                        <li class="flex items-center gap-3 md:gap-4">
+                            <span class="w-6 h-6 md:w-8 md:h-8 bg-rose-500 text-white rounded-full flex items-center justify-center text-[10px] md:text-xs">✔</span>
+                            <span>ハーブティーでおもてなし</span>
+                        </li>
+                        <li class="flex items-center gap-3 md:gap-4">
+                            <span class="w-6 h-6 md:w-8 md:h-8 bg-rose-500 text-white rounded-full flex items-center justify-center text-[10px] md:text-xs">✔</span>
+                            <span>無理な勧誘・契約強制はゼロ</span>
+                        </li>
                     </ul>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 6: Welcome Consultation (New) -->
-    <section id="consultation" class="py-24 bg-beige text-center">
-        <div class="container mx-auto px-4 max-w-5xl">
-            <h2 class="text-3xl font-bold mb-4 section-title text-gray-800">まずはお話しすることから</h2>
-            <p class="text-gray-500 mb-16 italic text-sm font-medium tracking-widest uppercase">Consultation is Always Welcome</p>
-            
-            <div class="bg-white rounded-[3rem] p-8 md:p-16 shadow-xl relative overflow-hidden">
-                <div class="flex flex-col md:flex-row items-center gap-12 text-left relative z-10">
-                    <div class="md:w-1/2 space-y-6">
-                        <h3 class="text-2xl font-bold text-gray-900 tracking-wider">「相談だけでも、大歓迎です」</h3>
-                        <p class="text-gray-600 leading-relaxed">
-                            「何からすればいいか分からない」「自分に何が必要か相談したい」<br>
-                            そんなお悩み、プロと一緒に紐解きませんか？
-                        </p>
-                        <p class="text-gray-600 leading-relaxed font-medium">
-                            BEAUTY STEPでは、カウンセリング当日の施術契約を無理に勧めることは絶対にありません。
-                        </p>
-                        <div class="space-y-4 py-4">
-                            <div class="flex items-center space-x-3">
-                                <span class="bg-rose-100 text-rose-500 px-3 py-1 rounded-full text-xs font-bold">安心</span>
-                                <span class="text-sm text-gray-700">お茶を飲みながらリラックスして相談</span>
-                            </div>
-                            <div class="flex items-center space-x-3">
-                                <span class="bg-rose-100 text-rose-500 px-3 py-1 rounded-full text-xs font-bold">信頼</span>
-                                <span class="text-sm text-gray-700">医師が直接あなたのお悩みをお伺いします</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md:w-1/2">
-                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=800" class="rounded-3xl shadow-lg w-full h-64 object-cover" alt="温かみのあるカウンセリング">
-                    </div>
-                </div>
-                <!-- Background decoration -->
-                <div class="absolute -top-12 -right-12 w-64 h-64 bg-rose-50 rounded-full opacity-50"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 7: FAQ -->
-    <section id="faq" class="py-24 bg-white text-left text-center md:text-left">
-        <div class="container mx-auto px-4 max-w-2xl">
-            <h2 class="text-3xl font-bold mb-16 text-center section-title italic font-light">Questions & Answers</h2>
-            <div class="space-y-10 text-left">
-                <div class="relative pl-12">
-                    <span class="absolute left-0 top-0 text-3xl font-black text-rose-200">Q.</span>
-                    <h3 class="font-bold text-lg mb-2">どれくらいで効果が出ますか？</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed text-left">早い方で施術から3日〜1週間程度で実感いただけます。脂肪細胞が排出されるまで数週間にわたって徐々に変化が続きます。</p>
-                </div>
-                <div class="relative pl-12 border-t pt-8">
-                    <span class="absolute left-0 top-8 text-3xl font-black text-rose-200">Q.</span>
-                    <h3 class="font-bold text-lg mb-2">一回で終わりますか？</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed text-left">一回でも効果を実感いただけますが、より理想を追求される場合は、2週間おきに3回程度の継続をおすすめしています。</p>
-                </div>
-                <div class="relative pl-12 border-t pt-8">
-                    <span class="absolute left-0 top-8 text-3xl font-black text-rose-200">Q.</span>
-                    <h3 class="font-bold text-lg mb-2">本当に腫れませんか？</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed text-left">注入直後は水分により少し膨らみますが、数時間〜翌日には落ち着きます。「誰にもバレなかった」というお声を多く頂いています。</p>
+                <div class="flex-1 w-full h-[300px] md:h-auto">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover" alt="リラックスした相談風景">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA -->
-    <section id="cta" class="py-24 px-4 bg-gray-900 text-white relative overflow-hidden text-center">
+    <!-- Final CTA (Meta Optimized) -->
+    <section id="cta" class="py-32 md:py-48 px-4 bg-gray-950 text-white relative overflow-hidden text-center">
         <div class="container mx-auto max-w-4xl relative z-10">
-            <span class="text-rose-400 font-bold tracking-[0.3em] text-sm uppercase mb-10 block">New Life with Confidence</span>
-            <h2 class="text-3xl md:text-6xl font-bold mb-12 leading-[1.6] tracking-[0.2em] md:tracking-[0.25em]">
+            <span class="text-rose-400 font-bold tracking-[0.4em] text-[8px] md:text-[10px] uppercase mb-10 block opacity-80">Empowering Your True Self</span>
+            
+            <h2 class="text-2xl md:text-7xl font-bold mb-14 leading-[1.6] tracking-[0.15em] md:tracking-[0.25em] text-glow px-4">
                 自信が欲しい、を<br>叶えます。
             </h2>
-            <p class="text-gray-400 mb-16 text-lg leading-relaxed">
-                まずはカウンセリングだけでもOK。お茶を飲みながら、<br class="hidden md:block">
-                あなたの「なりたい自分」についてお話ししませんか？
+            
+            <p class="text-gray-400 mb-16 text-xs md:text-xl leading-relaxed font-light tracking-[0.1em] px-4">
+                数ヶ月後、あなたはもっと自分のことが好きになっているはず。<br class="hidden md:block">
+                その最初の物語を、ここからはじめませんか？
             </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-6">
-                <a href="#" class="bg-[#06C755] text-white px-10 py-5 rounded-full font-bold text-lg flex items-center justify-center space-x-3 hover:opacity-90 transition-opacity">
+            
+            <!-- Tap friendly buttons -->
+            <div class="flex flex-col sm:flex-row justify-center gap-5 px-4 md:px-0">
+                <a href="#" class="bg-[#06C755] text-white py-5 md:py-6 md:px-12 rounded-full font-bold text-base md:text-lg flex items-center justify-center space-x-3 hover:scale-105 transition-all shadow-2xl">
                     <span>公式LINEで無料相談</span>
                 </a>
-                <a href="#" class="bg-rose-500 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-rose-600 transition-colors shadow-xl shadow-rose-900/40">
+                <a href="#" class="bg-rose-500 text-white py-5 md:py-6 md:px-12 rounded-full font-bold text-base md:text-lg hover:bg-rose-600 hover:scale-105 transition-all shadow-2xl">
                     24時間WEB予約
                 </a>
             </div>
-            <div class="mt-16 flex justify-center items-center space-x-10 opacity-40">
-                <div class="flex items-center space-x-2"><span class="text-xl">🍵</span><span class="text-[10px]">お茶サービス</span></div>
-                <div class="flex items-center space-x-2"><span class="text-xl">💳</span><span class="text-[10px]">カードOK</span></div>
-                <div class="flex items-center space-x-2"><span class="text-xl">🏢</span><span class="text-[10px]">完全個室</span></div>
+            
+            <div class="mt-20 flex justify-center items-center space-x-6 md:space-x-12 opacity-30 text-[8px] md:text-[11px] font-bold tracking-[0.2em] uppercase">
+                <div class="flex flex-col items-center gap-2"><span>🍵</span><span>Tea</span></div>
+                <div class="flex flex-col items-center gap-2"><span>💎</span><span>Private</span></div>
+                <div class="flex flex-col items-center gap-2"><span>🛡️</span><span>Safe</span></div>
+                <div class="flex flex-col items-center gap-2"><span>✨</span><span>Free</span></div>
             </div>
         </div>
-        <!-- Decorative bg -->
-        <div class="absolute top-0 right-0 w-96 h-96 bg-rose-500 opacity-5 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-rose-500/10 to-transparent"></div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 bg-white border-t border-gray-100 text-center text-gray-400 text-xs tracking-widest">
+    <footer class="py-16 bg-white border-t border-gray-50 text-center text-gray-400 text-[8px] md:text-[10px] tracking-[0.2em] md:tracking-[0.3em] uppercase font-medium">
         <div class="container mx-auto px-4">
-            <p class="mb-6">&copy; 2024 BEAUTY STEP SPECIALIZED CLINIC. All rights reserved.</p>
-            <div class="flex justify-center space-x-6 uppercase font-bold text-center">
-                <a href="#" class="hover:text-rose-500 transition-colors text-center">Safety</a>
-                <a href="#" class="hover:text-rose-500 transition-colors text-center">Ethics</a>
-                <a href="#" class="hover:text-rose-500 transition-colors text-center">Contact</a>
+            <div class="flex flex-wrap justify-center gap-6 md:gap-10 mb-10 font-bold">
+                <a href="#">Safety</a>
+                <a href="#">Privacy</a>
+                <a href="#">Access</a>
             </div>
+            <p>&copy; 2024 BEAUTY STEP CLINIC.</p>
         </div>
     </footer>
 
